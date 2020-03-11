@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
 
-const MerchantSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
     name: String,
     email: {
         type: String,
         unique: true
+
+    },
+    password: {
+        type: String,
+        select: false
     },
     phone: {
         type: String,
@@ -13,16 +19,11 @@ const MerchantSchema = mongoose.Schema({
     country: String,
     state: String,
     address: String,
-    description: String,
-    category: String,
-    extra: String,
-    merchant_key: String,
-    status: {
-        type: Number,
-        default: 0
-    }
+    status: String,
+    activation_key: String
+
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Merchant', MerchantSchema);
+module.exports = mongoose.model('Users', UserSchema);

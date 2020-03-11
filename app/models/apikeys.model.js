@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 
 const ApiSchema = mongoose.Schema({
-    name: String,
-    app_id: String,
+    name:  {
+        type: String,
+        unique: true
+    },
+    app_id:  {
+        type: String,
+        unique: true
+    },
     environment: String,
     status: String,
     life_span: String,
