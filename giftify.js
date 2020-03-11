@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
 require('./app/routes/merchant.routes.js')(app);
 require('./app/routes/auth.routes.js')(app);
+require('./app/routes/users.route.js')(app);
 // listen for requests
 app.listen(3000, () => {
     console.log("Giftify back-end app is listening on port 3000");

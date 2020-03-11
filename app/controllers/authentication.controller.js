@@ -4,7 +4,16 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const apiModel = require('../models/apikeys.model.js');
 const { check, validationResult } = require('express-validator');
-const log = require('log-to-file');
+//const log = require('log-to-file');
+
+const opts = {
+    errorEventName:'error',
+        logDirectory: './logs',
+        fileNamePattern:'giftify-<DATE>.log',
+        dateFormat:'YYYY.MM.DD'
+};
+const log = require('simple-node-logger').createRollingFileLogger( opts );
+
 
 exports.createAppToken = [
     check('app_id').not().isEmpty().withMessage('App ID is not provided for validation'),
@@ -49,7 +58,7 @@ exports.createAppToken = [
            expiresIn: 86400 //24 Hours expiration
         });
 
-        log(token, 'authLog.log');
+        log.info('Signed TOKEN', token, 'received', new Date().toJSON());
 
         return res.status(200).json({
             error: false, 
@@ -59,7 +68,8 @@ exports.createAppToken = [
 
     });
   }catch(error){
-    console.log(error);
+
+    log.info('An exception occured', error, ' on app signing', new Date().toJSON());
   }
 
 }];
@@ -68,14 +78,19 @@ exports.identificationSTart = [
     check('app_id').not().isEmpty().withMessage('Application ID cannot be empty'),
     check('name').not().isEmpty().withMessage('Please provide application name'),
     (req, res) => {
-      const errors = validationResult(req);
-      log(errors, 'authLog.log');
 
-      if(!errors.isEmpty())
-      return res.status(402).json({
+      const errors = validationResult(req);
+
+      if(!errors.isEmpty()){
+
+        log.error('Validation error occured', errors, ' App identifier', new Date().toJSON());
+
+          return res.status(402).json({
           error: true, 
           message: errors.array()
         });
+      }
+      
 
         const createApp = new apiModel({
             name: req.body.name,
@@ -102,7 +117,7 @@ exports.identificationSTart = [
         }).catch(err => {
             res.status(500).json({
                 error: true,
-                message: err.message || "An error occured while creating merchant. Try again later."
+                message: err.message || "An error occured while generating token. Try again later."
             });
         });
     }
