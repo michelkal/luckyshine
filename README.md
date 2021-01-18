@@ -52,17 +52,17 @@ To insert these data, run:
 ## RUN THE APPLICATION
 If all went well as described in the steps above, run the application:
 `npm start`
-And the outcome should be something like this:
-`> LuckyShine@1.0.0 start ../../luckyShine`
-`> nodemon luckyshine.js`
+And the outcome should be something like this:</br>
+`> LuckyShine@1.0.0 start ../../luckyShine`</br>
+`> nodemon luckyshine.js`</br>
 
-`[nodemon] 2.0.2`
-`[nodemon] to restart at any time, enter "rs"`
-`[nodemon] watching dir(s): *.*`
-`[nodemon] watching extensions: js,mjs,json`
-`[nodemon] starting "node luckyshine.js"`
-`LuckyShine app is listening on port 3000`
-`Successfully connected to the database == [ID]`
+`[nodemon] 2.0.2`</br>
+`[nodemon] to restart at any time, enter "rs"`</br>
+`[nodemon] watching dir(s): *.*`</br>
+`[nodemon] watching extensions: js,mjs,json`</br>
+`[nodemon] starting "node luckyshine.js"`</br>
+`LuckyShine app is listening on port 3000`</br>
+`Successfully connected to the database == [ID]`</br>
 
 All good now, there's a simple [Postman collection](https://documenter.getpostman.com/view/139351/TVzXAaCn) that contains 3 endpoints for testing the application:
 - USER LOGIN - authentication user with name, password and email. Once successfully authenticated, a JWT token is provided that would be used as `Authorization` header for subsequent request.
