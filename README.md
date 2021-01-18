@@ -65,7 +65,7 @@ And the outcome should be something like this:</br>
 `Successfully connected to the database == [ID]`</br>
 
 All good now, there's a simple [Postman collection](https://documenter.getpostman.com/view/139351/TVzXAaCn) that contains 3 endpoints for testing the application:
-- USER LOGIN - authentication user with name, password and email. Once successfully authenticated, a JWT token is provided that would be used as `Authorization` header for subsequent request.
+- USER LOGIN - authenticate user with name, password and email. Once successfully authenticated, a JWT token is provided that would be used as `Authorization` header for subsequent request.
 Note: Token expired after 24 hours
 - TREASURE SEARCH - Find treasure within a given distance for a given coordinate (latitude and longitude)
 - FIND TREASURE WITH MONEY VALUE - Find treasure within a given distance for a given coordinate (latitude and longitude) and prize
