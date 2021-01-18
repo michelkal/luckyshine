@@ -16,7 +16,7 @@ framework (ExpressJS, HapiJS etc.)
 * Create a migration/seeding for the MySQL tables
 
 ## SOLUTION
-This mini project was built with [Node.js](htts://nodejs.org), using [ExpressJS](https://expressjs.com) Framework.
+This mini project was built with [Node.js](https://nodejs.org), using [ExpressJS](https://expressjs.com) Framework.
 To run this project, you're required to have Node.js installed on your machine and MYSQL or MariaDB
 
 Other extensions used to facilate the development process (to name a few) are:
@@ -36,13 +36,13 @@ All of these dependencies are available in the `package.json` file, you do not n
 - `cd luckyshine`
 - `npm install`
 - Rename .env.example to .env (`mv .env.example .env` if you're using a Unix based OS)
-- Open `.env` with your IDE, change the DB connection details to your
+- Open `.env` with your IDE, change the DB connection details to yours
 
 ##### RUN DATABASE MIGRATION
 I created some migration files which represent your database tables. After changing the DB connection in the `.env` file (you should have created your DATABASE also inside your Mysql server).
 To migrate the tables (users, treasures, money_values) run:
 `npx knex migrate:latest --env development --knexfile knexfiles.js`
-Note, here we used `npx` and not `npm`, this is because `knex` was not install globally (`npx` will read within node module)
+Note, here I used `npx` and not `npm`, this is because `knex` was not install globally (`npx` will read within node module)
 
 #### SEED THE SAMPLE DATA FOR THE TABLES YOU JUST CREATED
 Using `knex` we also created some sample data (provided in the assignment) to populate the tables listed above.
