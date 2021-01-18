@@ -45,7 +45,7 @@ To migrate the tables (users, treasures, money_values) run:
 Note, here I used `npx` and not `npm`, this is because `knex` was not install globally (`npx` will read within node module)
 
 #### SEED THE SAMPLE DATA FOR THE TABLES YOU JUST CREATED
-Using `knex` we also created some sample data (provided in the assignment) to populate the tables listed above.
+Using `knex` I also created some sample data (provided in the assignment) to populate the tables listed above.
 To insert these data, run:
 `npx knex seed:run --env development --knexfile knexfiles.js`
 
